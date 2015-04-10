@@ -1,65 +1,66 @@
-# Git Style Guide
+# Guia de Estilo Git 
 
-This is a Git Style Guide inspired by [*How to Get Your Change Into the Linux
+Este é um guia de estilo Git inspirado pelo [*How to Get Your Change Into the Linux
 Kernel*](https://www.kernel.org/doc/Documentation/SubmittingPatches),
-the [git man pages](http://git-scm.com/doc) and various practices popular
-among the community.
+the [página do git](http://git-scm.com/doc) e várias práticas populares
+dentro da comunidade.
 
-Translations of the guide are available in the following languages:
+Traduções do guia estão disponíveis nos seguintes idiomas :
 
-* [Chinese Simplified](https://github.com/aseaday/git-style-guide)
+* [Inglês Simplificado](https://github.com/agis-/git-style-guide)
+* [Chinês Simplificado](https://github.com/aseaday/git-style-guide)
 
-If you feel like contributing, please do so! Fork the project and open a pull
+Se você se sentir confortável para contribuir, por favor, o faça! Dê um fork no projeto e abra um pull
 request.
 
-# Table of contents
+# Tabela de Conteúdo
 
 1. [Branches](#branches)
 2. [Commits](#commits)
-  1. [Messages](#messages)
+  1. [Mensagens](#messages)
 3. [Merging](#merging)
 4. [Misc.](#misc)
 
 ## Branches
 
-* Choose *short* and *descriptive* names:
+* Escolha nomes *curtos* e *descritivos*:
 
   ```shell
-  # good
+  # bom
   $ git checkout -b oauth-migration
 
-  # bad - too vague
+  # ruim - muito vago
   $ git checkout -b login_fix
   ```
 
-* Identifiers from corresponding tickets in an external service (eg. a GitHub
-  issue) are also good candidates for use in branch names. For example:
+* Identificadores correspondentes de tickets de um serviço externo (Ex. uma Issue do GitHub
+) também são bons candidatos para usar em nomes de branches. Por exemplo:
 
   ```shell
-  # GitHub issue #15
+  # GitHub Issue #15
   $ git checkout -b issue-15
   ```
 
-* Use *dashes* to separate words.
+* Use *barras* para separar palavras.
 
-* When several people are working on the *same* feature, it might be convenient
-  to have *personal* feature branches and a *team-wide* feature branch.
-  Use the following naming convention:
+* Quando várias pessoas estão trabalhando na *mesma* funcionalidade, pode ser conveniente
+  ter um branch de funcionalidade *pessoal* e um branch de funcionalidade para a *equipe*.
+  Use a seguinte convenção de nomenclatura:
 
   ```shell
   $ git checkout -b feature-a/master # team-wide branch
-  $ git checkout -b feature-a/maria  # Maria's personal branch
-  $ git checkout -b feature-a/nick   # Nick's personal branch
+  $ git checkout -b feature-a/maria  # Branch pessoal da Maria
+  $ git checkout -b feature-a/nick   # Branch pessoal do Nick
   ```
 
-  Merge at will the personal branches to the team-wide branch (see ["Merging"](#merging)).
-  Eventually, the team-wide branch will be merged to "master".
+  Merge at will the personal branches to the team-wide branch (ver ["Merging"](#merging)).
+  Eventualmente, o branch da equipe será integrado ao "master".
 
 * Delete your branch from the upstream repository after it's merged (unless
   there is a specific reason not to).
 
-  Tip: Use the following command while being on "master", to list merged
-  branches:
+  Dica: Use o seguinte comando quando estiver no "master" para listar os branches 
+  que foram feitos merge:
 
   ```shell
   $ git branch --merged | grep -v "\*"
@@ -67,48 +68,45 @@ request.
 
 ## Commits
 
-* Each commit should be a single *logical change*. Don't make several
-  *logical changes* in one commit. For example, if a patch fixes a bug and
-  optimizes the performance of a feature, split it into two separate commits.
+* Cada commit deve ser uma *mudança lógica* simples. Não faça várias
+  *mudanças lógicas* em um commit. Por exemplo, Se uma alteração corrige um bug e
+  otimiza a performance de uma funcionalidade, o divida em dois commits separados.
 
-* Don't split a single *logical change* into several commits. For example,
-  the implementation of a feature and the corresponding tests should be in the
-  same commit.
+* Não divida uma *mudança lógica* simples em vários commits. Por exemplo,
+  a implementação de uma funcionalidade e os testes correspondentesa ela devem estar no mesmo commit.
 
-* Commit *early* and *often*. Small, self-contained commits are easier to
-  understand and revert when something goes wrong.
+* Commit *cedo* e *frequentemente*. Commits pequenos e autônomos são mais fáceis de entender e reverter 
+  quando algo dá errado.
 
-* Commits should be ordered *logically*. For example, if *commit X* depends
-  on changes done in *commit Y*, then *commit Y* should come before *commit X*.
+* Commits devem ser ordenados *logicamente*. Por example, se *commit X* depende
+  de uma mudança feita no *commit Y*, então *commit Y* deve vir antes do *commit X*.
 
-### Messages
+### Mensagens
 
-* Use the editor, not the terminal, when writing a commit message:
+* Use o editor, não o terminal, quando estiver escrevendo a mensagem do commit:
 
   ```shell
-  # good
+  # bom
   $ git commit
 
-  # bad
-  $ git commit -m "Quick fix"
+  # ruim
+  $ git commit -m "Correção rápida"
   ```
 
-  Committing from the terminal encourages a mindset of having to fit everything
-  in a single line which usually results in non-informative, ambiguous commit
-  messages.
+  Committar do terminal encoraja uma ideia de ter que encaixar tudo em uma
+  única linha, o que geralmente resulta em commits não informativos, mensagens ambíguas.
 
-* The summary line (ie. the first line of the message) should be
-  *descriptive* yet *succinct*. Ideally, it should be no longer than
-  *50 characters*. It should be capitalized and written in imperative present
-  tense. It should not end with a period since it is effectively the commit
-  *title*:
+* O sumário (ie. a primeira linha da mensagem) deve ser
+  *descritivo* ainda que *sucinto*. O ideal é que não seja maior que *50 caracteres*.
+  Deve ser escrito com letra maiúscula e no modo imperativo.
+  Não deve terminar com um ponto, uma vez que é efetivamente o título do *title*:
 
   ```shell
-  # good - imperative present tense, capitalized, fewer than 50 characters
-  Mark huge records as obsolete when clearing hinting faults
+  # bom - modo imperativo, letr maiúscula, menos que 50 caracteres
+  Marcar grandes registros como obsoleto quando insinuar falhas
 
-  # bad
-  fixed ActiveModel::Errors deprecation messages failing when AR was used outside of Rails.
+  # ruim
+  corrigido ActiveModel::Erros mensagens de depreciado falham quando o AR era usado fora do Rails.
   ```
 
 * After that should come a blank line followed by a more thorough
@@ -238,13 +236,16 @@ request.
   * [`git-prune(1)`](http://git-scm.com/docs/git-prune)
   * [`git-fsck(1)`](http://git-scm.com/docs/git-fsck)
 
-# License
+# Licença
 
 ![cc license](http://i.creativecommons.org/l/by/3.0/88x31.png)
 
-This work is licensed under a Creative Commons Attribution 4.0
+Este trabalho está sobre licença da Creative Commons Attribution 4.0
 International license.
 
-# Credits
+# Créditos
 
 Agis Anastasopoulos / [@agisanast](https://twitter.com/agisanast) / http://agis.io
+
+# Tradução
+Guylherme Tabosa / [@tabosag](https://twitter.com/tabosag)
