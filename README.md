@@ -2,7 +2,7 @@
 
 Este é um guia de estilo Git inspirado pelo [*How to Get Your Change Into the Linux
 Kernel*](https://www.kernel.org/doc/Documentation/SubmittingPatches),
-the [página do git](http://git-scm.com/doc) e várias práticas populares
+pela [página do git](http://git-scm.com/doc) e várias práticas populares
 dentro da comunidade.
 
 Traduções do guia estão disponíveis nos seguintes idiomas :
@@ -48,16 +48,16 @@ request.
   Use a seguinte convenção de nomenclatura:
 
   ```shell
-  $ git checkout -b feature-a/master # team-wide branch
+  $ git checkout -b feature-a/master # Branch da equipe
   $ git checkout -b feature-a/maria  # Branch pessoal da Maria
   $ git checkout -b feature-a/nick   # Branch pessoal do Nick
   ```
 
-  Merge at will the personal branches to the team-wide branch (ver ["Merging"](#merging)).
+  Realizar o merge nos branchs pessoais para o branch da equipe (ver ["Merging"](#merging)).
   Eventualmente, o branch da equipe será integrado ao "master".
 
-* Delete your branch from the upstream repository after it's merged (unless
-  there is a specific reason not to).
+* Apague seu branch do upstream do repositório depois de integrado (a menos
+  que haja uma razão específica para não fazê-lo).
 
   Dica: Use o seguinte comando quando estiver no "master" para listar os branches 
   que foram feitos merge:
@@ -69,16 +69,16 @@ request.
 ## Commits
 
 * Cada commit deve ser uma *mudança lógica* simples. Não faça várias
-  *mudanças lógicas* em um commit. Por exemplo, Se uma alteração corrige um bug e
+  *mudanças lógicas* em um commit. Por exemplo, se uma alteração corrige um bug e
   otimiza a performance de uma funcionalidade, o divida em dois commits separados.
 
 * Não divida uma *mudança lógica* simples em vários commits. Por exemplo,
-  a implementação de uma funcionalidade e os testes correspondentesa ela devem estar no mesmo commit.
+  a implementação de uma funcionalidade e os testes correspondentes à ela devem estar no mesmo commit.
 
 * Commit *cedo* e *frequentemente*. Commits pequenos e autônomos são mais fáceis de entender e reverter 
   quando algo dá errado.
 
-* Commits devem ser ordenados *logicamente*. Por example, se *commit X* depende
+* Commits devem ser ordenados *logicamente*. Por exemplo, se *commit X* depende
   de uma mudança feita no *commit Y*, então *commit Y* deve vir antes do *commit X*.
 
 ### Mensagens
@@ -102,135 +102,120 @@ request.
   Não deve terminar com um ponto, uma vez que é efetivamente o título do *title*:
 
   ```shell
-  # bom - modo imperativo, letr maiúscula, menos que 50 caracteres
+  # bom - modo imperativo, letra maiúscula, menos que 50 caracteres
   Marcar grandes registros como obsoleto quando insinuar falhas
 
   # ruim
-  corrigido ActiveModel::Erros mensagens de depreciado falham quando o AR era usado fora do Rails.
+  corrigido ActiveModel::Errors mensagens de depreciado falham quando o AR era usado fora do Rails.
   ```
 
-* After that should come a blank line followed by a more thorough
-  description. It should be wrapped to *72 characters* and explain *why*
-  the change is needed, *how* it addresses the issue and what *side-effects*
-  it might have.
+* Depois disso deve aparecer uma linha em branco seguido de mais descrição. 
+  Deve possuir *72 caracteres* e explicar *por que*
+  a mudança é necessária, *como* está relacionado com a issue e o quais *efeitos colaterais*
+  podem ter.
 
-  It should also provide any pointers to related resources (eg. link to the
-  corresponding issue in a bug tracker):
+  Também deve fornecer qualquer referência aos recursos relacionados (eg. link para a issue correspondente em um bug tracker):
 
   ```shell
-  Short (50 chars or fewer) summary of changes
+  Curto (50 chars ou menos) sumário de mudanças
 
-  More detailed explanatory text, if necessary. Wrap it to
-  72 characters. In some contexts, the first
-  line is treated as the subject of an email and the rest of
-  the text as the body.  The blank line separating the
-  summary from the body is critical (unless you omit the body
-  entirely); tools like rebase can get confused if you run
-  the two together.
+  Texto explanatório mais detalhado, se necessário. Deve possuir
+  72 caracteres. Em alguns contextos, a primeira linha
+  é tratado como o assunto de um email e o resto
+  do texto como o corpo. A linha vazia separando o sumário
+  do corpo é crucial (a menos que você omita inteiramente
+  o corpo); ferramentas como rebase podem se confudir se você roda os dois juntos.
 
-  Further paragraphs come after blank lines.
+  Parágrafos adicionais vem depois das linhas vazias.
 
-  - Bullet points are okay, too
+  - Marcador circulares são permitidos também
 
-  - Use a hyphen or an asterisk for the bullet,
-    followed by a single space, with blank lines in
-    between
+  - Use um hífen ou asterisco para o marcador, seguido por um espaço simples, com linhas vazia entre eles
 
-  Source http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+  Fonte http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
   ```
 
-  Ultimately, when writing a commit message, think about what you would need
-  to know if you run across the commit in a year from now.
+  Por fim, quando estiver escrevendo uma mensagem do commit, pense sobre o que você precisaria saber olhando para o commit daqui um ano.
 
-* If a *commit A* depends on another *commit B*, the dependency should be
-  stated in the message of *commit A*. Use the commit's hash when referring to
-  commits.
+* Se um *commit A* depende do *commit B*, a dependência deve ser evidenciada na mensagem
+  do *commit A*. Use o hash do commit quando se referir a commits.
 
-  Similarly, if *commit A* solves a bug introduced by *commit B*, it should
-  be stated in the message of *commit A*.
+  Similarmente, se o *commit A* corrige um bug introduzido pelo *commit B*, deve ser evidenciada na mensagem
+  do *commit A*.
 
-* If a commit is going to be squashed to another commit use the `--squash` and
-  `--fixup` flags respectively, in order to make the intention clear:
+* Se um commit sofrerá squash de outro commit use o `--squash` e
+  `--fixup` sintaxes respectivamente, a fim tornar sua intenção clara:
 
   ```shell
   $ git commit --squash f387cab2
   ```
 
-  *(Tip: Use the `--autosquash` flag when rebasing. The marked commits will be
-  squashed automatically.)*
+  *(Dica: Use a `--autosquash` marcação quando estive realizando rebase. Os commits
+  terão o squash realizado automaticamente.)*
 
 ## Merging
 
-* **Do not rewrite published history.** The repository's history is valuable in
-  its own right and it is very important to be able to tell *what actually
-  happened*. Altering published history is a common source of problems for
-  anyone working on the project.
+* **Não reescreva histórico publicado.** O histórico do repositório é valioso a sua maneira e muito importante para permitir dizer *o que realmente aconteceu*. Alterar histórico publicado é uma fonte comum de problemas para qualquer um que trabalhe no projeto.
 
-* However, there are cases where rewriting history is legitimate. These are
-  when:
+* Contudo, há casos em que reescrever o histórico é legítimo. Estes são quando:
 
-  * You are the only one working on the branch and it is not being reviewed.
+  * Você é o único trabalhando no branch e não está sendo inspecionado.
 
-  * You want to tidy up your branch (eg. squash commits) and/or rebase it onto
-    the "master" in order to merge it later.
+  * Você quer arrumar seu branch (eg. commits squash ) e/ou realizar rebase dele para o "master" para
+    realizar o merge depois.
 
-  That said, *never rewrite the history of the "master" branch* or any other
-  special branches (ie. used by production or CI servers).
+  Dito isso, *nunca reescreva o histórico do branch "master"* ou quaisquer 
+  branchs especiais (ie. usado em produção ou servidores de Integração Contínua).
 
-* Keep the history *clean* and *simple*. *Just before you merge* your branch:
+* Mantenha o histórico *limpo* e *simples*. *Bem antes de realizar o merge* em seu branch:
 
-    1. Make sure it conforms to the style guide and perform any needed actions
-       if it doesn't (squash/reorder commits, reword messages etc.)
+    1. Tenha certeza que está em conformidade com o guia de estilo e realize qualquer ação necessária
+       se não (squash/reordenar seus commits, refazer mensagens etc.)
 
-    2. Rebase it onto the branch it's going to be merged to:
+    2. Rebase em outro branch em que será feito:
 
        ```shell
-       [my-branch] $ git fetch
-       [my-branch] $ git rebase origin/master
-       # then merge
+       [meu-branch] $ git fetch
+       [meu-branch] $ git rebase origin/master
+       # então merge
        ```
 
-       This results in a branch that can be applied directly to the end of the
-       "master" branch and results in a very simple history.
+       Isto resulta em um branch que pode ser diretamente aplicado no final do 
+       branch "master" e resulta em um histórico bem simples.
 
-       *(Note: This strategy is better suited for projects with short-running
-       branches. Otherwise it might be better to occassionally merge the
-       "master" branch instead of rebasing onto it.)*
+       *(Nota: Esta estratégia é mais adequada para projetos com branches
+        com branches recentes. Caso contrário é melhor ocasonalmente realizar o merge do
+        branch "master" em vez de fazer rebase nele.)*
 
-* If your branch includes more than one commit, do not merge with a
-  fast-forward:
+* Se seu branch inclui mais de um commit, não faça merge como um branch avançado:
 
   ```shell
-  # good - ensures that a merge commit is created
-  $ git merge --no-ff my-branch
+  # bom - garante que o commit de merge seja criado
+  $ git merge --no-ff meu-branch
 
-  # bad
-  $ git merge my-branch
+  # ruim
+  $ git merge meu-branch
   ```
 
 ## Misc.
 
-* There are various workflows and each one has its strengths and weaknesses.
-  Whether a workflow fits your case, depends on the team, the project and your
-  development procedures.
+* Há vários fluxos de trabalho, e cada um tem suas forças e fraquezas.
+  Se um fluxo de trabalho se encaixa para o seu caso, depende da equipe, do projeto e do seu
+  processo de desenvolvimento.
 
-  That said, it is important to actually *choose* a workflow and stick with it.
+  Dito isso, é importante escolher um fluxo de trabalho e permanecer com ele.
 
-* *Be consistent.* This is related to the workflow but also expands to things
-  like commit messages, branch names and tags. Having a consistent style
-  throughout the repository makes it easy to understand what is going on by
-  looking at the log, a commit message etc.
+* *Seja consistente.* Isto é relacionado ao fluxo de trabalho, mas também se expande a coisas como, mensagens dos commits, nomes de branchs, tags. Ter um estilo consistente dentro do repositório torna as coisas mais fáceis para entender o que está acontecendo olhando no log, em uma mensagem do commit etc.
 
-* *Test before you push.* Do not push half-done work.
+* *Teste antes de realizar o push.* Não suba trabalho não terminado.
 
-* Use [annotated tags](http://git-scm.com/book/en/v2/Git-Basics-Tagging#Annotated-Tags) for
-  marking releases or other important points in the history.
+* Use [Tags Anotadas](http://git-scm.com/book/en/v2/Git-Basics-Tagging#Annotated-Tags) para
+  marcação de releases ou outros pontos importantes no histórico
 
-  Prefer [lightweight tags](http://git-scm.com/book/en/v2/Git-Basics-Tagging#Lightweight-Tags) for personal use, such as to bookmark commits
-  for future reference.
+  Prefira [lightweight tags](http://git-scm.com/book/en/v2/Git-Basics-Tagging#Lightweight-Tags) para uso pessoal, bem como para commit com marcações para referências futuras.
 
-* Keep your repositories at a good shape by performing maintenance tasks
-  occasionally, in your local *and* remote repositories:
+* Mantenha seu repositório em boa forma, realizando ocasionalmente tarefas de manutenção de performance em seu
+  repositório local *e* remoto:
 
   * [`git-gc(1)`](http://git-scm.com/docs/git-gc)
   * [`git-prune(1)`](http://git-scm.com/docs/git-prune)
