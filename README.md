@@ -1,4 +1,4 @@
-# Guia de Estilo Git 
+# Guia de Estilo Git
 
 Este é um guia de estilo Git inspirado pelo [*How to Get Your Change Into the Linux
 Kernel*](https://www.kernel.org/doc/Documentation/SubmittingPatches),
@@ -41,7 +41,7 @@ request.
   $ git checkout -b issue-15
   ```
 
-* Use *barras* para separar palavras.
+* Use *traços* para separar palavras.
 
 * Quando várias pessoas estão trabalhando na *mesma* funcionalidade, pode ser conveniente
   ter um branch de funcionalidade *pessoal* e um branch de funcionalidade para a *equipe*.
@@ -59,7 +59,7 @@ request.
 * Apague seu branch do upstream do repositório depois de integrado (a menos
   que haja uma razão específica para não fazê-lo).
 
-  Dica: Use o seguinte comando quando estiver no "master" para listar os branches 
+  Dica: Use o seguinte comando quando estiver no "master" para listar os branches
   que foram feitos merge:
 
   ```shell
@@ -75,7 +75,7 @@ request.
 * Não divida uma *mudança lógica* simples em vários commits. Por exemplo,
   a implementação de uma funcionalidade e os testes correspondentes à ela devem estar no mesmo commit.
 
-* Commit *cedo* e *frequentemente*. Commits pequenos e autônomos são mais fáceis de entender e reverter 
+* Commit *cedo* e *frequentemente*. Commits pequenos e autônomos são mais fáceis de entender e reverter
   quando algo dá errado.
 
 * Commits devem ser ordenados *logicamente*. Por exemplo, se *commit X* depende
@@ -109,7 +109,7 @@ request.
   corrigido ActiveModel::Errors mensagens de depreciado falham quando o AR era usado fora do Rails.
   ```
 
-* Depois disso deve aparecer uma linha em branco seguido de mais descrição. 
+* Depois disso deve aparecer uma linha em branco seguido de mais descrição.
   Deve possuir *72 caracteres* e explicar *por que*
   a mudança é necessária, *como* está relacionado com a issue e o quais *efeitos colaterais*
   podem ter.
@@ -164,7 +164,7 @@ request.
   * Você quer arrumar seu branch (eg. commits squash ) e/ou realizar rebase dele para o "master" para
     realizar o merge depois.
 
-  Dito isso, *nunca reescreva o histórico do branch "master"* ou quaisquer 
+  Dito isso, *nunca reescreva o histórico do branch "master"* ou quaisquer
   branchs especiais (ie. usado em produção ou servidores de Integração Contínua).
 
 * Mantenha o histórico *limpo* e *simples*. *Bem antes de realizar o merge* em seu branch:
@@ -180,7 +180,7 @@ request.
        # então merge
        ```
 
-       Isto resulta em um branch que pode ser diretamente aplicado no final do 
+       Isto resulta em um branch que pode ser diretamente aplicado no final do
        branch "master" e resulta em um histórico bem simples.
 
        *(Nota: Esta estratégia é mais adequada para projetos com branches
