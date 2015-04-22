@@ -7,8 +7,11 @@ dentro da comunidade.
 
 Traduções do guia estão disponíveis nos seguintes idiomas :
 
-* [Inglês Simplificado](https://github.com/agis-/git-style-guide)
+* [Coreano](https://github.com/ikaruce/git-style-guide)
 * [Chinês Simplificado](https://github.com/aseaday/git-style-guide)
+* [Japonês](https://github.com/objectx/git-style-guide)
+* [Inglês Simplificado](https://github.com/agis-/git-style-guide)
+* [Ucraniano](https://github.com/denysdovhan/git-style-guide)
 
 Se você se sentir confortável para contribuir, por favor, o faça! Dê um fork no projeto e abra um pull
 request.
