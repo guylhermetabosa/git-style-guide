@@ -36,7 +36,7 @@ request.
   $ git checkout -b login_fix
   ```
 
-* Identificadores correspondentes de tickets de um serviço externo (Ex. uma Issue do GitHub
+* Identificadores correspondentes de tickets de um serviço externo (Ex. Issues do GitHub
 ) também são bons candidatos para usar em nomes de branches. Por exemplo:
 
   ```shell
@@ -133,7 +133,7 @@ request.
 
   - Marcador circulares são permitidos também
 
-  - Use um hífen ou asterisco para o marcador, seguido por um espaço simples, com linhas vazia entre eles
+  - Use um hífen ou asterisco para o marcador, seguido por um espaço simples, com linhas vazias entre eles
 
   Fonte http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
   ```
@@ -153,7 +153,7 @@ request.
   $ git commit --squash f387cab2
   ```
 
-  *(Dica: Use a `--autosquash` marcação quando estive realizando rebase. Os commits
+  *(Dica: Use a `--autosquash` marcação quando estiver realizando rebase. Os commits
   terão o squash realizado automaticamente.)*
 
 ## Merging
@@ -187,7 +187,7 @@ request.
        branch "master" e resulta em um histórico bem simples.
 
        *(Nota: Esta estratégia é mais adequada para projetos com branches
-        com branches recentes. Caso contrário é melhor ocasonalmente realizar o merge do
+        com branches recentes. Caso contrário é melhor ocasionalmente realizar o merge do
         branch "master" em vez de fazer rebase nele.)*
 
 * Se seu branch inclui mais de um commit, não faça merge como um branch avançado:
