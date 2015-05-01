@@ -9,6 +9,7 @@ Traduções do guia estão disponíveis nos seguintes idiomas :
 
 * [Coreano](https://github.com/ikaruce/git-style-guide)
 * [Chinês Simplificado](https://github.com/aseaday/git-style-guide)
+* [Francês](https://github.com/pierreroth64/git-style-guide)
 * [Japonês](https://github.com/objectx/git-style-guide)
 * [Inglês Simplificado](https://github.com/agis-/git-style-guide)
 * [Ucraniano](https://github.com/denysdovhan/git-style-guide)
