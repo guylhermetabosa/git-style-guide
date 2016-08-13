@@ -188,7 +188,7 @@ request.
        branch "master" e resulta em um histórico bem simples.
 
        *(Nota: Esta estratégia é mais adequada para projetos com branches
-        com branches recentes. Caso contrário é melhor ocasionalmente realizar o merge do
+        recentes. Caso contrário é melhor ocasionalmente realizar o merge do
         branch "master" em vez de fazer rebase nele.)*
 
 * Se seu branch inclui mais de um commit, não faça merge como um branch avançado:
