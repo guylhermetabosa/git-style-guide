@@ -1,7 +1,7 @@
 # Guia de Estilo Git
 
 Este é um guia de estilo Git inspirado pelo [*How to Get Your Change Into the Linux
-Kernel*](https://www.kernel.org/doc/Documentation/SubmittingPatches),
+Kernel*](https://www.kernel.org/doc/Documentation/process/submitting-patches.rst),
 pela [página do git](http://git-scm.com/doc) e várias práticas populares
 dentro da comunidade.
 
